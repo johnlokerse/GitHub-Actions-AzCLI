@@ -6,7 +6,6 @@ on:
 
 env:
   buildConfiguration: Release
-  projectName: projectoutput
 
 jobs:
   build:
@@ -20,12 +19,15 @@ jobs:
         run: dotnet build --configuration ${{ env.buildConfiguration }}
 
       - name: dotnet publish
-        run: dotnet publish --no-build --no-restore --configuration ${{ env.buildConfiguration }} --output ${{ env.projectName }}
+        run: dotnet publish --no-build --no-restore --configuration ${{ env.buildConfiguration }} --output projectoutput
 
-      - name: zip ${{ env.projectName }}
+      - name: zip output
         uses: thedoctor0/zip-release@master
         with:
-          filename: ${{ env.projectName }}.zip 
+          filename: projectoutput.zip 
+
+      - name: run 'ls -alh'
+        run: ls -alh
 
       - name: publish .zip artifact
         uses: actions/download-artifact@v2
