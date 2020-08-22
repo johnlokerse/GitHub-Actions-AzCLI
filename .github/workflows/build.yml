@@ -28,6 +28,6 @@ jobs:
           filename: ${{ env.projectName }}.zip 
 
       - name: publish .zip artifact
-        uses: actions/download-artifact@2
+        uses: actions/download-artifact@v2
         with:
           path: projectoutput.zip
