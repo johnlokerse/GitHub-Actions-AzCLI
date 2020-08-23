@@ -22,11 +22,11 @@ jobs:
         run: dotnet publish --no-build --no-restore --configuration ${{ env.buildConfiguration }} --output projectoutput
 
       - name: zip the output
-        uses: thedoctor0/zip-release@master
-        with:
-          filename: projectoutput.zip
+        run: |
+          Compress-Archive -Path .\projectoutput\ -DestinationPath .\projectoutput.zip
+        shell: pwsh
 
       - name: publish
         uses: actions/download-artifact@v2
         with:
-          name: projectoutput.zip
+          name: ./projectoutput.zip
