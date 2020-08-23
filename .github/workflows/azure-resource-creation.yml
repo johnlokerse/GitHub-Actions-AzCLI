@@ -25,10 +25,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_SECRET }}
 
-      - name: Run deploy.sh
-        uses: azure/CLI@v1
+      - name: Run deploy.ps1
+        uses: Azure/powershell@v1
         with:
-          azcliversion: 2.0.73
-          inlineScript: |
-            chmod 754 $GITHUB_WORKSPACE/azure-deploy/deploy.ps1
-            $GITHUB_WORKSPACE/azure-deploy/deploy.ps1
+          inlineScript: $GITHUB_WORKSPACE/azure-deploy/deploy.ps1
