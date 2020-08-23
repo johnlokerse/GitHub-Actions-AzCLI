@@ -21,3 +21,6 @@ jobs:
       - name: Run a one-line script
         run: dir
         shell: pwsh
+
+      - name: Dir $GITHUB_WORKSPACE
+        run: dir $GITHUB_WORKSPACE
