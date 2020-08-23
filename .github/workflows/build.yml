@@ -25,3 +25,9 @@ jobs:
         run: |
           Compress-Archive -Path .\projectoutput\* -DestinationPath .\projectoutput.zip
         shell: pwsh
+
+      - name: publish build artifact (zip)
+        uses: actions/upload-artifact@v2
+        with:
+          name: "Build Artifact"
+          path: ./projectoutput.zip
