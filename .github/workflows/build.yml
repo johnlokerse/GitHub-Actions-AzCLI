@@ -35,7 +35,7 @@ jobs:
           mv projectoutput.zip zip
 
       - name: run 'ls -alh'
-        run: ls -alh
+        run: ls -alh publishdir
 
       - name: publish .zip artifact
         uses: actions/download-artifact@v2
