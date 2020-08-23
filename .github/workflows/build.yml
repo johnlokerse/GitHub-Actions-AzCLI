@@ -29,4 +29,5 @@ jobs:
       - name: publish
         uses: actions/download-artifact@v2
         with:
-          path: publishdir
+          name: published-zip
+          path: ./projectoutput.zip
