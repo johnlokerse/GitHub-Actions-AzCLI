@@ -14,9 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run a one-line script
-        run: ls -alh
-
       - name: Dir $GITHUB_WORKSPACE
         run: ls -alh $GITHUB_WORKSPACE/azure-deploy
 
@@ -25,3 +22,6 @@ jobs:
         with:
           workflow: build.yml
           name: "Build Artifact"
+
+      - name: Run a one-line script
+        run: ls -alh
