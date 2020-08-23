@@ -21,15 +21,23 @@ jobs:
       - name: dotnet publish
         run: dotnet publish --no-build --no-restore --configuration ${{ env.buildConfiguration }} --output projectoutput
 
-      - name: make directory
-        run: mkdir zip
+      - name: run 'ls -alh'
+        run: ls -alh
 
       - name: zip output
         uses: thedoctor0/zip-release@master
         with:
-          filename: zip/projectoutput.zip 
+          filename: projectoutput.zip 
+
+      - name: make dir and move zip
+        run: |
+          mkdir publishdir
+          mv projectoutput.zip zip
+
+      - name: run 'ls -alh'
+        run: ls -alh
 
       - name: publish .zip artifact
         uses: actions/download-artifact@v2
         with:
-          path: zip
+          path: publishdir
