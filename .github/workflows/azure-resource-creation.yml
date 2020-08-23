@@ -26,7 +26,10 @@ jobs:
           creds: ${{ secrets.AZURE_SECRET }}
 
       - name: run bash
-        run: ls -alh
+        run: |
+          pwd
+          ls -alh $GITHUB_WORKSPACE
+          pwd $GITHUB_WORKSPACE
 
       - name: Run deploy.sh
         uses: Azure/CLI@v1
