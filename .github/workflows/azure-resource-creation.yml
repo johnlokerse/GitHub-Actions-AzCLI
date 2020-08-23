@@ -14,14 +14,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Dir $GITHUB_WORKSPACE
-        run: ls -alh $GITHUB_WORKSPACE/azure-deploy
-
       - name: download artifact
         uses: dawidd6/action-download-artifact@v2.8.0
         with:
           workflow: build.yml
           name: "Build Artifact"
 
-      - name: Run a one-line script
-        run: ls -alh
+      - name: Azure Login
+        uses: Azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_SECRET }}
+
+      - name: Run deploy.sh
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.73
+          inlineScript: |
+            chmod 754 $GITHUB_WORKSPACE/azure-deploy/deploy.ps1
+            $GITHUB_WORKSPACE/azure-deploy/deploy.ps1
