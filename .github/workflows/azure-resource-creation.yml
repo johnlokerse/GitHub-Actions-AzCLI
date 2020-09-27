@@ -38,5 +38,5 @@ jobs:
             $GITHUB_WORKSPACE/azure-deploy/create-resources.sh
 
       - name: Deploy the .zip
-        run: az webapp deployment source config-zip --src projectoutput.zip --resource-group $rgName --name $webAppName
+        run: az webapp deployment source config-zip --src projectoutput.zip --resource-group ${{ env.rgName }} --name ${{ env.webAppName }}
         shell: pwsh
