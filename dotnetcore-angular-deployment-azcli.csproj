@@ -8,6 +8,9 @@
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
 
+    <!-- SonarCloud needs this -->
+    <ProjectGuid>6C0DCD59-BE58-446E-B76B-D4007B34127F</ProjectGuid>
+
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
     <RootNamespace>dotnetcore_angular_deployment_azcli</RootNamespace>
