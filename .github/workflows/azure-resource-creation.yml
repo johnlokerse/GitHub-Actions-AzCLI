@@ -13,6 +13,7 @@ env:
 
 jobs:
   create-and-deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
