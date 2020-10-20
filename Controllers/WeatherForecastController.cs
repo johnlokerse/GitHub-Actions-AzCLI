@@ -9,7 +9,7 @@ namespace dotnetcore_angular_deployment_azcli.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBasedfgdfg
+    public class WeatherForecastController : ControllerBased
     {
         private static readonly string[] Summaries = new[]
         {
