@@ -33,7 +33,7 @@ jobs:
       - name: Run create-resources.sh
         uses: Azure/CLI@v1
         with:
-          azcliversion: 2.12.0
+          azcliversion: 2.14.0
           inlineScript: |
             chmod +x $GITHUB_WORKSPACE/azure-deploy/create-resources.sh
             $GITHUB_WORKSPACE/azure-deploy/create-resources.sh
